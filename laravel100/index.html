@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="mid" style="text-align: left">
+    <ul v-for="title in titles">
+        <li v-html="title"></li>
+    </ul>
+</div>
+</body>
+</html>
+
+<script src="../js/vue.js"></script>
+<script src="../js/axios.min.js"></script>
+<script>
+    var topic_title = '/laravel100/api/topic_titles.php';
+    const vm = new Vue({
+        el: '#mid',
+        data: {
+            titles:[],
+            results:[],
+        },
+        mounted: function() {
+            axios.get(topic_title)
+            .then(response => {
+                this.titles = response.data;
+            });
+        },
+        updated: function() {
+        },
+    });
+</script>
