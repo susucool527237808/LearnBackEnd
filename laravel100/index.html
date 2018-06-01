@@ -7,7 +7,7 @@
 <body>
 <div id="mid" style="text-align: left">
     <ul v-for="title in titles">
-        <li v-html="title"></li>
+        <li style="cursor:pointer;" v-html="title.data" @click="chooseTitle(title.id)"></li>
     </ul>
 </div>
 </body>
@@ -15,6 +15,8 @@
 
 <script src="../js/vue.js"></script>
 <script src="../js/axios.min.js"></script>
+<script src="../js/sweetalert2.all.js"></script>
+<script src="../js/jquery-1.7.1.min.js"></script>
 <script>
     var topic_title = '/laravel100/api/topic_titles.php';
     const vm = new Vue({
@@ -29,7 +31,70 @@
                 this.titles = response.data;
             });
         },
+        methods: {
+            chooseTitle(id){
+
+
+                swal({
+                    padding: '0.9rem',
+                    backdrop: `
+                                rgba(0,0,0,0.4)
+                            `,
+                    title: '问题'+id,
+                            animation: false,
+                            customClass: 'animated fadeIn',
+                            input: 'text',
+                            inputPlaceholder: '请输入回答',
+                            showCancelButton: true,
+                            confirmButtonText: '确定',
+                            cancelButtonText: '取消',
+                            inputAttributes: {
+                                'autocapitalize': 'off',
+                                'autocorrect': 'off'
+                            },
+                    inputValidator: (result) => {
+                        if( !result ){
+                            return '答案不能为空';
+                        }
+                    }
+                }).then((result) => {
+                    if ( result.value ) {
+                        $.post("/laravel100/api/" + id +".php",{params:result.value},function(response){
+                            var response= eval("("+response+")");
+                            if( response.statusCode == 'error' ){
+
+                                swal({
+                                    backdrop: `
+                                        rgba(0,0,0,0.4)
+                                    `,
+                                    type: 'error',
+                                    title: '问题'+id,
+                                    text: response.msg,
+                                    showConfirmButton: false
+                                });
+
+                            } else {
+
+                                swal({
+                                    backdrop: `
+                                        rgba(0,0,0,0.4)
+                                    `,
+                                    type: 'success',
+                                    title: '问题'+id,
+                                    text: response.msg,
+                                    showConfirmButton: false
+                                });
+
+                            }
+
+                        });
+                    }
+                });
+
+            }
+        },
         updated: function() {
         },
     });
+
 </script>

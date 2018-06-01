@@ -129,12 +129,19 @@ $topic_array = array_map(function($value){
     return trim($value);
 },$topic_array);
 if( $number ){
-    foreach( $topic_array as $v ){
-        if( preg_match('/^'.$number.'、*/',trim($v)) ){
-            echo json_encode($v);break;
+    foreach( $topic_array as $k=>$v ){
+        if( preg_match('/^('.$number.')、*/', trim($v), $matches) ){
+            $json = array('id'=>1,'data'=>$v);
+            echo json_encode($json);break;
         }
     }
 } else {
-    echo json_encode($topic_array);
+    $topic_array_multi = array();
+    foreach( $topic_array as $k=>$v ){
+        if( preg_match('/^(\d+)、*/', trim($v), $matches) ){
+            $topic_array_multi[] = array('id'=>$matches[1],'data'=>$v);
+        }
+    }
+    echo json_encode($topic_array_multi);
 }
 
