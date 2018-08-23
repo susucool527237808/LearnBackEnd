@@ -5,10 +5,10 @@
  * Date: 2018/8/23
  * Time: 17:07
  */
-namespace turn;
+namespace turn\my_library;
 
 class A {
     public function __construct (){
-        echo 'class A is init';
+        echo 'class A is init<br>';
     }
 }

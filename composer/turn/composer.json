@@ -1,5 +1,8 @@
 {
   "autoload": {
+    "files": [
+      "my_library/A.php"
+    ]
   },
   "require": {
     "ramsey/uuid": "^3.7",

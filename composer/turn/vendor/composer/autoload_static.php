@@ -8,6 +8,7 @@ class ComposerStaticInit3b265e133d6a98bf1d7b9421fd6efeda
 {
     public static $files = array (
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        '977afc2cdfcc6aac49cb0ddbb26c51c7' => __DIR__ . '/../..' . '/my_library/A.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -32,16 +33,11 @@ class ComposerStaticInit3b265e133d6a98bf1d7b9421fd6efeda
         ),
     );
 
-    public static $classMap = array (
-        'turn\\A' => __DIR__ . '/../..' . '/my_library/A.php',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit3b265e133d6a98bf1d7b9421fd6efeda::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit3b265e133d6a98bf1d7b9421fd6efeda::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit3b265e133d6a98bf1d7b9421fd6efeda::$classMap;
 
         }, null, ClassLoader::class);
     }

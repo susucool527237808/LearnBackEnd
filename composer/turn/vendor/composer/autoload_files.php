@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     '5255c38a0faeba867671b61dfda6d864' => $vendorDir . '/paragonie/random_compat/lib/random.php',
+    '977afc2cdfcc6aac49cb0ddbb26c51c7' => $baseDir . '/my_library/A.php',
 );
