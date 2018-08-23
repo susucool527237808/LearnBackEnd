@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+see console
+</body>
+<script type="text/javascript">
+    /**
+     * @param {number[]} nums
+     * @return {number}
+     */
+    var removeDuplicates = function(nums) {
+        for(var i=0; i<nums.length-1; i++ ){
+            if( nums[i] == nums[i+1] ){
+                //移除元素并向前移动一位指针
+                nums.splice(i,1);
+                i--;
+            }
+        }
+        return nums.length;
+    };
+    var nums = new Array(1,1,2,2,3,4);
+    console.log(nums);
+    console.log(removeDuplicates(nums));
+    console.log(nums);
+</script>
+</html>
