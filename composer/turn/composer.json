@@ -1,7 +1,11 @@
 {
   "autoload": {
     "files": [
-      "my_library/A.php"
+      "my_library/A.php",
+      "other_library/A.php"
+    ],
+    "classmap": [
+      "classmap/lib/src/"
     ]
   },
   "require": {

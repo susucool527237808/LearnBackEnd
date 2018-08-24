@@ -5,10 +5,9 @@
  * Date: 2018/8/23
  * Time: 17:07
  */
-namespace turn\my_library;
 
 class A {
     public function __construct (){
-        echo 'class A in my library is init<br>';
+        echo 'class A in prs4 lib src is init<br>';
     }
 }
