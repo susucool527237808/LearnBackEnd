@@ -23,6 +23,3 @@ new MyLibraryA();
 new OtherLibraryA();
 new ClassmapLibSrcA();
 new B();
-$var = 1;
-echo '$var<br>';
-echo "$var<br >";
