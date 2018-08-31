@@ -9,8 +9,8 @@
 $wx_img_uri = "https://www.bilibili.com/";
 $image_array = getImgs(curl_get($wx_img_uri));
 foreach($image_array as $v){
-    save_image($v,rand(1000,10000).".jpg");
-//    var_dump($v);
+//    save_image($v,rand(1000,10000).".jpg");
+    var_dump($v);
 }
 
 
