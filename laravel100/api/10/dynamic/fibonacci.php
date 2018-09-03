@@ -7,11 +7,30 @@
  */
 
 $fib_count = 0;
-echo "fib总和: ".fib(20).",执行次数: ".$fib_count."<br>";
+echo "fib总和: ".fib(15).",执行次数: ".$fib_count."<br>";
 
 $fib_dynamic_count = 0;
-echo "dynamic_fib总和: ".dynamic_fib(20).",执行次数: ".$fib_dynamic_count."<br>";
+echo "dynamic_fib总和: ".dynamic_fib(15).",执行次数: ".$fib_dynamic_count."<br>";
 
+echo mt_rand()."<br>";
+echo rand()."<br>";
+
+for ($c = 0; $c < 3; $c++) {
+    $start = microtime(true);
+    $sum = 0.0;
+    for ($i = 0; $i < 100000000; $i++) {
+        $sum += rand();
+    }
+    printf('[rand %d] Time: %.3f s%s', $c, microtime(true) - $start, PHP_EOL);
+}
+for ($c = 0; $c < 3; $c++) {
+    $start = microtime(true);
+    $sum = 0.0;
+    for ($i = 0; $i < 100000000; $i++) {
+        $sum += mt_rand();
+    }
+    printf('[mt_rand %d] Time: %.3f s%s', $c, microtime(true) - $start, PHP_EOL);
+}
 
 
 
