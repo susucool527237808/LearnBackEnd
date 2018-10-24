@@ -20,4 +20,4 @@ function num2chinese($num){
     return $return;
 }
 
-var_dump(num2chinese(1467863321));
+var_dump(num2chinese(12357));
