@@ -14,6 +14,8 @@ use turn\my_library\A as MyLibraryA;
 use turn\other_library\A as OtherLibraryA;
 use turn\classmap\lib\src\A as ClassmapLibSrcA;
 
+var_dump(1);
+die;
 $uuid1 = Uuid::uuid1();
 echo $uuid1->toString();
 

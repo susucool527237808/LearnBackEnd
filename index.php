@@ -5,4 +5,5 @@
  * Date: 2018/5/30
  * Time: 15:13
  */
+phpinfo();
 var_dump('welcome');
